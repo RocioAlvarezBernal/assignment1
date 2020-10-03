@@ -48,7 +48,16 @@ public class AccountHolder {
 		this.checkingAccountOpeningBalance = checkingAccountOpeningBalance;
 		this.savingsAccountOpeningBalance = savingsAccountOpeningBalance;
 	}
-
+// getting the savings account class and returning an object 
+	public SavingsAccount getSavingsAccount() {
+		 SavingsAccount savings = new SavingsAccount(savingsAccountOpeningBalance);
+		 return savings;
+	}
+	
+	public CheckingAccount getCheckingAccount() {
+		CheckingAccount checking = new CheckingAccount(checkingAccountOpeningBalance);
+		 return checking;
+	}
 	public String getFirstName() {
 		return firstName;
 	}
