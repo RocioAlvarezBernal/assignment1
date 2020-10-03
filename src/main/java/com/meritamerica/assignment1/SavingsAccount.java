@@ -2,6 +2,8 @@ package com.meritamerica.assignment1;
 
 import java.lang.Math;
 
+import java.text.NumberFormat;
+
 public class SavingsAccount {
 	private double balance;
 	private double interestRate;
@@ -15,7 +17,7 @@ public class SavingsAccount {
 
 	}
 
-	private double getBalance() {
+	public double getBalance() {
 		return this.balance;
 	}
 
@@ -46,9 +48,19 @@ public class SavingsAccount {
 	}
 
 	public String toString() {
-		return "Savings Account Balance: " + balance + "Savings Account Interest Rate: " + this.interestRate
-				+ "Savings Account Balance in" + years + "years:" + futureValue(this.years);
+		NumberFormat defaultFormat = NumberFormat.getInstance();
+		defaultFormat.setMinimumFractionDigits(2);
+		
+		return "Savings Account Balance: " + balance + "\n" + "Savings Account Interest Rate: " + (this.interestRate)*100 + "%" +
+				"\n" + "Savings Account Balance in " + years + " years: $" + defaultFormat.format(futureValue(this.years));
 
+	}
+	
+	public static void main(String[] args) {
+		
+		SavingsAccount savingsAccount = new SavingsAccount(1000);
+		System.out.println(savingsAccount);
+		
 	}
 
 }
