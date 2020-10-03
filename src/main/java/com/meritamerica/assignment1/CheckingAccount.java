@@ -4,7 +4,7 @@ import java.lang.Math;
 
 import java.text.NumberFormat;
 
-//Creates Savings Account Class and methods computing withdawals, deposits and future value calculated with interest
+//Creates Checking Account Class and methods computing withdawals, deposits and future value calculated with interest
 public class CheckingAccount {
 	private double balance;
 	private double interestRate;
@@ -27,7 +27,7 @@ public class CheckingAccount {
 	}
 	
 	/*This will return a true or false - withdraw amount cannot be negative or more than is in Checking Account Balance.
-	  This also subtracts the withdraw amount from Savings Account Balance if true*/
+	  This also subtracts the withdraw amount from Checking Account Balance if true*/
 	public boolean withdraw(double amount) {
 		if (amount < 0 || amount > this.balance) {
 			return false;

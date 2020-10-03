@@ -53,7 +53,7 @@ public class SavingsAccount {
 		return this.balance * Math.pow(1 + this.interestRate, years);
 	}
 
-	//toString method specifies the format for decimal places and what we information to print
+	//toString method specifies the format for digits to the right of the decimal and the information to print
 	public String toString() {
 		NumberFormat defaultFormat = NumberFormat.getInstance();
 		defaultFormat.setMinimumFractionDigits(2);
