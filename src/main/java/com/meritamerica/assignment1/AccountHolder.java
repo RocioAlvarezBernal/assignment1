@@ -109,12 +109,15 @@ public class AccountHolder {
 //	}
 
 //TBD variable from checking/saving account 
+
 	public String accountHolderToString() {
 		DecimalFormat df = new DecimalFormat("#.00");
 		
-		String checkingAccount3Years = df.format((this.checkingAccountOpeningBalance + ((this.checkingAccountOpeningBalance * 0.01) * 3) ) );
-		String savingsAccount3Years = df.format((this.savingsAccountOpeningBalance + ((this.checkingAccountOpeningBalance * 0.01) * 3) ) );
-
+		CheckingAccount checkingAccountForUse = new CheckingAccount();
+		checkingAccountForUse.futureValue(3);
+		
+		String checkingAccount3Years = df.format((this.checkingAccountOpeningBalance + ((this.checkingAccountOpeningBalance * 0.0001) * 3) ) );
+		String savingsAccount3Years = df.format((this.savingsAccountOpeningBalance + ((this.savingsAccountOpeningBalance * 0.01) * 3) ) );
 		
 		String accountInformation= "Name: " + firstName + " " + middleName + " " + lastName + "\n" 
 			+ "SSN: " + ssn + "\n"
