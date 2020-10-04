@@ -1,4 +1,5 @@
 package com.meritamerica.assignment1;
+import java.lang.Math;
 
 import java.lang.Math;
 
@@ -15,7 +16,7 @@ public class SavingsAccount {
 
 	}
 
-	private double getBalance() {
+	public double getBalance() {
 		return this.balance;
 	}
 
