@@ -1,6 +1,8 @@
 package com.meritamerica.assignment1;
 //Create the following classes with the following methods:
 
+import java.text.DecimalFormat;
+
 //AccountHolder
 //AccountHolder() - default constructor
 //AccountHolder(String firstName, String middleName, String lastName, String ssn, double checkingAccountOpeningBalance, double savingsAccountOpeningBalance)
@@ -27,13 +29,13 @@ package com.meritamerica.assignment1;
 //Savings Account Balance in 3 years: $1030.03
 
 public class AccountHolder {
-	
-	String firstName;
-	String middleName;
-	String lastName;
-	String ssn;
-	double checkingAccountOpeningBalance;
-	double savingsAccountOpeningBalance;
+
+	private String firstName;
+	private String middleName;
+	private String lastName;
+	private String ssn;
+	private double checkingAccountOpeningBalance;
+	private double savingsAccountOpeningBalance;
 	
 	/* test without default constructor below to see impact on program */
 	public AccountHolder() {
@@ -55,7 +57,7 @@ public class AccountHolder {
 	}
 	
 	public CheckingAccount getCheckingAccount() {
-		CheckingAccount checking = new CheckingAccount(checkingAccountOpeningBalance);
+		CheckingAccount checking = new CheckingAccount(checkingAccountOpeningBalance,0);
 		 return checking;
 	}
 	public String getFirstName() {
@@ -107,17 +109,21 @@ public class AccountHolder {
 //	}
 
 //TBD variable from checking/saving account 
-	public String toString() {
-		String TBD = "tbd";
-		String test= "Name: " + firstName + " " + middleName + " " + lastName + "\n" 
+	public String accountHolderToString() {
+		DecimalFormat df = new DecimalFormat("#.00");
+		
+		String checkingAccount3Years = df.format((this.checkingAccountOpeningBalance + ((this.checkingAccountOpeningBalance * 0.01) * 3) ) );
+		String savingsAccount3Years = df.format((this.savingsAccountOpeningBalance + ((this.checkingAccountOpeningBalance * 0.01) * 3) ) );
+
+		
+		String accountInformation= "Name: " + firstName + " " + middleName + " " + lastName + "\n" 
 			+ "SSN: " + ssn + "\n"
-			+"Checking Account Balance: " + checkingAccountOpeningBalance + "\n"
+			+"Checking Account Balance: " + df.format(checkingAccountOpeningBalance) + "\n"
 			+"Checking Account Interest Rate: 0.0001" + "\n"
-			+"Checking Account Balance in 3 years: " + TBD + "\n"
+			+"Checking Account Balance in 3 years: " + checkingAccount3Years + "\n"
 			+"Savings Account Balance: " + savingsAccountOpeningBalance + "\n"
-			+"Savings Account Interest Rate:  + 0.01" + "\n"
-			+"Savings Account Balance in 3 years: " + TBD + "\n";
-		return test;
-	
+			+"Savings Account Interest Rate: 0.01" + "\n"
+			+"Savings Account Balance in 3 years: " + savingsAccount3Years + "\n";
+		return accountInformation;
 	}
 }
