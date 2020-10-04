@@ -113,8 +113,8 @@ public class AccountHolder {
 	public String accountHolderToString() {
 		DecimalFormat df = new DecimalFormat("#.00");
 		
-		CheckingAccount checkingAccountForUse = new CheckingAccount();
-		checkingAccountForUse.futureValue(3);
+//		CheckingAccount checkingAccountForUse = new CheckingAccount();
+//		checkingAccountForUse.futureValue(3);
 		
 		String checkingAccount3Years = df.format((this.checkingAccountOpeningBalance + ((this.checkingAccountOpeningBalance * 0.0001) * 3) ) );
 		String savingsAccount3Years = df.format((this.savingsAccountOpeningBalance + ((this.savingsAccountOpeningBalance * 0.01) * 3) ) );
